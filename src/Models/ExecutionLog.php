@@ -21,6 +21,13 @@ class ExecutionLog extends Model
         $this->connection = config('task-logger.connection');
     }
 
+    public function newQuery()
+    {
+        $builder = parent::newQuery();
+
+        return $builder->setConnection(config('task-logger.connection'));
+    }
+
     public function task(): BelongsTo
     {
         return $this->belongsTo(Task::class, 'TaskID', 'ID');
