@@ -18,14 +18,7 @@ class ExecutionLog extends Model
     {
         parent::__construct($attributes);
 
-        $this->connection = config('task-logger.connection');
-    }
-
-    public function newQuery()
-    {
-        $builder = parent::newQuery();
-
-        return $builder->setConnection(config('task-logger.connection'));
+        $this->connection = config('tasklogger.connection');
     }
 
     public function task(): BelongsTo

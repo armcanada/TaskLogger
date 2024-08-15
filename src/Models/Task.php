@@ -17,7 +17,7 @@ class Task extends Model
     {
         parent::__construct($attributes);
 
-        $this->connection = config('task-logger.connection');
+        $this->connection = config('tasklogger.connection');
     }
 
     protected function casts(): array
@@ -29,6 +29,6 @@ class Task extends Model
 
     public static function findBySlug(string $slug): ?self
     {
-        return self::where('Slug', $slug)->first();
+        return self::on(config('tasklogger.connection'))->where('Slug', $slug)->first();
     }
 }

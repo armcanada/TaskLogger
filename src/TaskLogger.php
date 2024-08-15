@@ -12,7 +12,7 @@ class TaskLogger
      */
     public function log(int $taskId, DateTime $start, ?DateTime $end, ?string $payload, bool $success, ?string $exception = null): ExecutionLog
     {
-        return ExecutionLog::create([
+        return ExecutionLog::on(config('task-logger.connection'))->create([
             'ExID' => $taskId,
             'Start' => $start,
             'End' => $end,
