@@ -24,7 +24,7 @@ abstract class LoggableCommand extends Command
             $error = null;
         } catch (\Exception $e) {
             $success = false;
-            $error = $e->getMessage();
+            $error = $e->getMessage()."\n".$e->getTraceAsString();
         }
 
         \TaskLogger::log($task->ID, $start, now(), $this->getTaskPayload(), $success, $error);
