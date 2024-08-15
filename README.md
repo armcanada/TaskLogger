@@ -1,10 +1,7 @@
+
 # Very short description of the package
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/armcanada/tasklogger.svg?style=flat-square)](https://packagist.org/packages/armcanada/tasklogger)
-[![Total Downloads](https://img.shields.io/packagist/dt/armcanada/tasklogger.svg?style=flat-square)](https://packagist.org/packages/armcanada/tasklogger)
-![GitHub Actions](https://github.com/armcanada/tasklogger/actions/workflows/main.yml/badge.svg)
-
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
+This package allows us to write the execution of our task to a centralised log for auditing purposes.
 
 ## Installation
 
@@ -15,24 +12,32 @@ composer require armcanada/tasklogger
 ```
 
 ## Usage
-
+Extend your command class with Armcanada\TaskLogger\Commands\LoggableCommand and then wrap your task handling code in the `logExecution` method.
 ```php
-// Usage description here
-```
+<?php
 
-### Testing
+namespace  App\Console;
+ 
+use Armcanada\TaskLogger\Commands\LoggableCommand;
 
-```bash
-composer test
+class SendTelusLineReport extends LoggableCommand
+{
+	protected $signature = 'task_signature';
+	protected $description = 'Task description';
+
+	public function handle()
+	{
+		$this->logExecution(function () {
+			// Your code goes here
+		});
+	}
+}
 ```
 
 ### Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
 
-## Contributing
-
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ### Security
 
@@ -46,7 +51,3 @@ If you discover any security related issues, please email aduhaime@armcanada.ca 
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
-
-## Laravel Package Boilerplate
-
-This package was generated using the [Laravel Package Boilerplate](https://laravelpackageboilerplate.com).
