@@ -13,4 +13,5 @@ enum Application: int
     CASE MDCV = 6;
     case ARMP = 7;
     case ARMSMS = 8;
+    case VIRTUAL_AGENT_MANAGER = 9;
 }
