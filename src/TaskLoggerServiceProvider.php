@@ -15,7 +15,7 @@ class TaskLoggerServiceProvider extends ServiceProvider
          * Optional methods to load your package assets
          */
         // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'tasklogger');
-        // $this->loadViewsFrom(__DIR__.'/../resources/views', 'tasklogger');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'tasklogger');
         // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         // $this->loadRoutesFrom(__DIR__.'/routes.php');
 
@@ -25,9 +25,9 @@ class TaskLoggerServiceProvider extends ServiceProvider
             ], 'config');
 
             // Publishing the views.
-            /*$this->publishes([
+            $this->publishes([
                 __DIR__.'/../resources/views' => resource_path('views/vendor/tasklogger'),
-            ], 'views');*/
+            ], 'tasklogger-views');
 
             // Publishing assets.
             /*$this->publishes([
