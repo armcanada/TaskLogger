@@ -29,7 +29,7 @@ class TaskFailedMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'tasklogger::emails.task-failed',
+            view: 'tasklogger::emails.task_failed',
         );
     }
 }
