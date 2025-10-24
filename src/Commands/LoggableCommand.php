@@ -27,7 +27,7 @@ abstract class LoggableCommand extends Command
         } catch (\Exception $e) {
             $success = false;
             $error = $e->getMessage()."\n".$e->getTraceAsString();
-            Mail::to(config('tasklogger.error_email', 'ti@armcanada.ca'))
+            Mail::to(config('tasklogger.error_email', 'armti@armcanada.ca'))
                 ->send(new TaskFailedMail($task->Name, $e->getMessage()));
         }
 
