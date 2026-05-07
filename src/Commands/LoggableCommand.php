@@ -24,7 +24,7 @@ abstract class LoggableCommand extends Command
             $callback();
             $success = true;
             $error = null;
-        } catch (\Exception $e) {
+        } catch (\Throwable $e) {
             $success = false;
             $error = $e->getMessage()."\n".$e->getTraceAsString();
             Mail::to(config('tasklogger.error_email', 'armti@armcanada.ca'))

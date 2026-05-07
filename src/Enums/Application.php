@@ -14,6 +14,8 @@ enum Application: int
     case ARMP = 7;
     case ARMSMS = 8;
     case VIRTUAL_AGENT_MANAGER = 9;
+    case SHERLOCK = 10;
+    case ARMALYTICS = 11;
 
     public function slug(): string
     {
@@ -28,6 +30,8 @@ enum Application: int
             self::ARMP                  => 'armp',
             self::ARMSMS                => 'armsms',
             self::VIRTUAL_AGENT_MANAGER => 'virtual_agent_manager',
+            self::SHERLOCK              => 'sherlock',
+            self::ARMALYTICS            => 'armalytics',
         };
     }
 
