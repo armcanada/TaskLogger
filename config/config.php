@@ -5,5 +5,5 @@
  */
 return [
     'connection' => env('TASK_LOGGER_CONNECTION', 'tcollect'),
-    'error_email' => env('TASK_LOGGER_ERROR_EMAIL', 'ti@armcanada.ca'),
+    'error_email' => env('TASK_LOGGER_ERROR_EMAIL', 'armti@armcanada.ca'),
 ];
